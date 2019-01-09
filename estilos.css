@@ -1,0 +1,270 @@
+body{
+	display: grid;
+	margin:0;
+	grid-template-columns: 2fr 3fr 3fr;
+	grid-template-areas: "menu video video"
+						 "menu comentarios sugerencias";
+	font-family: 'Arial';
+}
+a{
+	text-decoration: none;
+}
+/*INICIO DE ASIDE*/
+aside{
+	position: relative;
+	grid-area: menu;
+	background: #151B31;
+	padding: 1em 1em;
+	color:#fff;
+}
+.titulo-logo{
+	font-size:2em;
+}
+.imglogo{
+	background: linear-gradient(to right,#F21A25,#E375A7);;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  	color: transparent;  
+}
+.close{
+	position: absolute;
+	top:0;
+	right: 0;
+	font-size: 1.5em;
+	padding: 1em;
+	color: #fff;
+	text-shadow: 1.5px 1.5px 1px #FFF;
+	display: none;
+}
+.list{
+	padding:0 1.2em;
+}
+.list li {
+	padding: .5em ;
+	margin-bottom: .5em;
+}
+.list li a {
+	color:#fff;
+}
+.list-amigo{
+	list-style: none;
+	padding:0 0;
+}
+.list-amigo>li{
+	padding: 0;
+}
+.list-amigo>li>a{
+	display: flex;
+	align-items: center;
+	margin-bottom: 1.5em;
+}
+.img-amigo{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-right: 1em;
+	border:1px solid #CACACA;
+}
+/*FIN DE ASIDE*/
+/*INICIO DE VIDEO*/
+.info-video{
+	grid-area: video;
+	margin:0;
+}
+.video{
+	position: relative;
+}
+.video-overlay{
+	position: absolute;
+	top:0;
+	left: 0;
+	padding: 1em;
+	transition: 0.5s;
+	
+}
+.menu-3{
+	position: relative;
+}
+.menu-3:before{
+	content:"";
+	position: relative;
+	display: none;
+	width: 1.8em;
+	height: 0.25em;
+	border-top: 0.25em solid #fff;/*4px-16px*/
+	border-bottom:0.75em double #fff;/*12px-16px*/
+
+}
+.video-overlay:hover{
+	background: rgba(0,0,0,.3);
+}
+.info-video img{
+	position: relative;
+	width: 100%;
+	margin: 0;
+
+}
+.info-video figcaption{
+	padding: 1.2em 0 1em 1em;
+	border-bottom: 2px solid #CACACA;
+}
+figcaption .accion{
+	display: grid;
+	grid-template-columns:1fr 1fr;
+	grid-auto-rows: 60px;
+	align-items: center;
+}
+.titulo{
+	
+	margin: 0;
+	color:#525C65;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+}
+.btn-lista{
+	background-image:linear-gradient(to left, #FF5B96,#FF1A22);
+}
+
+.accion-video{
+	margin:1em;
+	display: flex;
+	align-items: center;
+}
+.vistas{
+	color:#C0B8B9;
+	font-size: 0.9em;
+
+	padding:0 .8em;
+	}
+.compartir{
+	display: inline-block;
+	text-align: center;
+	margin: 0 2em;
+	color:#515A6A;
+}
+.compartir p{
+	margin:.1em;
+}
+.relacionados button:first-child{
+	background: #9B57FA;
+	margin-right: 0.5em;
+}
+.relacionados button:nth-of-type(2){
+	background: #17E9C4;
+	margin-right: 0.5em;
+}
+.relacionados button:nth-of-type(3){
+	background: #E01622;
+}
+button{
+	cursor:pointer;
+	color:#fff;
+	border-radius: .5em;
+	border:none;
+	padding: .5em;
+}
+/*FIN DE VIDEO*/
+/*INICO DE COMENTARIO*/
+.comentarios{
+	grid-area:comentarios;
+	padding: 0 1.2em;
+}
+.group-form{
+	background:#f1eff1;
+	display: grid;
+	grid-template-columns: 1fr 7fr;
+	border-radius: 1em;
+	border-bottom: 3px solid #d2d2d2;
+}
+.nuevo-comentario{
+	background:#f1eff1;
+	border:none;
+	font-weight: 700;
+	font-size: 1em;
+	border-radius: 1em;
+}
+.comentario{
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	grid-template-areas: "imagen nombre"
+						"imagen comentario";
+	margin:1em 0;
+}
+
+.comentario p{
+	margin:0;
+}
+.img-comentario{
+	grid-area:imagen;
+}
+
+.nombre-comentario{
+	 grid-area:nombre;
+}
+/*FIN DE COMENTARIO*/
+.sugerencias{
+	grid-area: sugerencias;
+	padding: 0 1.5em;
+}
+.img-sugerencia{
+	width: 90%;
+	border-radius: 1em;
+	box-shadow: 2px 4px 20px 0 #afadad;
+}
+.sugerencias figcaption p {
+	color:#515A6A;
+	width: 90%;
+	padding:  0 0.3em;
+}
+
+/* FIN DE COMENTARIOS*/
+
+/*MEDIAQUERIES*/
+@media screen and (max-width: 1024px){
+	body{
+	grid-template-columns:3fr 3fr;
+	grid-template-areas: "video video"
+						 "comentarios sugerencias";
+	}
+	.toggle{
+		display:block;
+	}
+	.menu-3:before{
+		display: block;
+	}
+	#nav {
+	 	position: fixed;
+	 	left: -200%;
+	 	width: 250px;
+	 	height: 100vh;
+	    transition: left .3s ease-in-out;
+	    z-index: 1;
+	}
+	#nav:target{
+		left: 0;
+		
+		overflow-y: scroll;
+		height: 100vh;
+	}
+}
+@media screen and (max-width: 678px){
+	body{
+		grid-template-columns:1fr;
+		grid-template-areas: "video"
+							 "comentarios"
+							 "sugerencias";
+		}
+	figcaption .accion{
+	grid-template-columns:1fr;
+	}
+	.titulo-vista{
+		text-align: center;
+	}
+	.accion-video{
+		margin:0 auto;
+	}
+	.relacionados{
+		text-align: center;
+	}
+}
